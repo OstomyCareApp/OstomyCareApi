@@ -37,6 +37,7 @@ public class SecurityConfig{
                         .requestMatchers(HttpMethod.POST, "/auth/entrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/artigo/cadastrar").hasRole("PROFISSIONAL")
                         .requestMatchers(HttpMethod.GET, "/artigo/listar").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/profissional/all").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class )
                 .build();
